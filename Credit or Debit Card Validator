@@ -1,1 +1,52 @@
+public class Credit_or_DebitCard_Validator {
+             //Credit/Debit card Validator.
+	
+	public static void main(String[] args) {
+			
+		Credit_or_DebitCard_Validator ccv = new Credit_or_DebitCard_Validator();
+		
+		int card_no[] ={4,4,1,7,1,2,3,4,5,6,7,8,9,1,1,3};
+		               // Enter your 16 digits Credit or Debit card number.
+		
+		ccv.validation(card_no);	
+			
+	}
+	
+	private void validation(int c_no[]) {
+		int sum =0;
+		int gsum =0;
+		int jj=0;
+		  int i;  
+		
+		for( i=0;i<c_no.length;i++) {
+			
+            	if(i%2==0) {
+            		c_no[i]= c_no[i]*2;
+					}
+            	
+			if(c_no[i]>=10)
+				{
+				while(c_no[i]>0) {
+					
+				sum= sum + c_no[i]%10; 
+				c_no[i]=c_no[i]/10;				
+				}
+				jj=sum;
+				c_no[i]=jj;
+				sum=0;	
+		      }
+			
+			if(c_no[i]>0) {
+				gsum = gsum+c_no[i];
+			}			 
+		}
+		
+		if(gsum%10==0) {
+			System.out.println("Your Card Number is Valid");
+		}
+			else {
+			System.out.println("Your Card Number is Not Valid");}	
+				
+		}		
+	}	
 
